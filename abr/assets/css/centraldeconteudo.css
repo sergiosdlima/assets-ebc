@@ -1,0 +1,63 @@
+.modal-download {
+  display: none;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+.modal-download.open {
+  display: block;
+}
+
+.modal-download .modal-overlay {
+  opacity: 0.8;
+  background: black;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.modal-download iframe {
+  width: 780px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  height: 600px;
+  background: #fff;
+  z-index: 2;
+  margin-left: -390px;
+  overflow: hidden;
+}
+
+.modal-download .closeIframe {
+  width: 780px;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  height: 50px;
+  z-index: 3;
+  margin-left: -390px;
+  overflow: hidden;
+}
+
+.modal-download .closeIframe button {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  background: #1C6492;
+  border: none;
+  font-size: 1.1em;
+  color: white;
+  cursor: pointer;
+}

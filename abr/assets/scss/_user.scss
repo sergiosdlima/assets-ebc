@@ -1,0 +1,163 @@
+// Should you need to overwrite any of our SCSS code or need to add any custom code, We highly recommend that you add your code into this file, so whenever theme update is available and you update the theme, You will not lose your hard work :)
+
+/*User CSS*/
+
+.font-23vw{
+  font-size: 23vw;
+}
+
+.font-3rem{
+  font-size: 3rem !important;
+}
+
+.botao_play {
+  border-radius: 50% !important;
+  width: 50px !important;
+  max-width: 50px !important;
+  height: 50px !important;
+}
+
+.icon-png-xlg{
+  width: 40px !important;
+  height: auto !important;
+  margin-bottom: 2px !important;
+}
+
+.icon-png-lg{
+  width: 20px !important;
+  height: auto !important;
+  margin-bottom: 6px !important;
+}
+
+.icon-png-md{
+  width: 15px !important;
+  height: auto !important;
+  margin-bottom: 5px !important;
+}
+
+.icon-png-sm{
+  width: 10px !important;
+  height: auto !important;
+  margin-bottom: 2px !important;
+}
+
+.icon-png-xsm{
+  width: 7px !important;
+  height: auto;
+  margin-bottom: 2px !important;
+}
+
+a .icon-png-lg:hover, a .icon-png-md:hover, a .icon-png-sm:hover, a .icon-png-xsm:hover {
+  opacity: .60;
+} 
+
+.alert-link{ 
+  font-weight: 600 !important;
+}
+
+.close {
+  font-weight: 600;
+}
+
+dt { 
+  font-weight: 600;
+}
+
+kbd kbd {
+  font-weight: 600;
+}
+
+.badge {
+  font-weight: 600;
+}
+
+
+.navbar-nav .social-icons-link {
+    display: inline-block;
+    height: 22px;
+    width: 22px;
+    line-height: 22px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 3px;
+    border: 0;
+    background: transparent;
+    color: #a9a9a9;
+    overflow: hidden;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.navbar-nav .social-icons-link:hover {
+    color: #0e572c;
+    text-decoration: none;
+}
+
+.navbar-nav .social-icons .social-icons-item{
+    margin: 0 0 5px 0;
+}
+
+.border-radius-10{
+  border-radius: 10px !important;
+}
+
+
+.box-label{
+	transform: translate(-50%, -50%);
+	text-align: center;
+	background-color: #fff;
+	display: inline-block;
+	z-index: 1;
+	padding: 0 15px;
+	font-size: 0.85rem !important;
+	position: absolute;
+	top: 0;
+	left: 50%;
+}
+
+
+.list-group-item{
+    background: none;
+}
+
+#svg{
+     overflow: hidden;
+    vertical-align: middle;
+    margin: 40vh auto;
+    height: 100%;
+    width: 100%;
+    max-height: 80px;
+}
+
+
+.bg-light-grad {
+  background: -moz-linear-gradient(150deg, #fff 40%, #CFD0D1 100%);
+  background: -webkit-gradient(linear, left top, right top, color-stop(40%, #fff), color-stop(100%, #CFD0D1));
+  background: -webkit-linear-gradient(150deg, #fff 40%, #CFD0D1 100%);
+  background: -o-linear-gradient(150deg, #fff 0%, #CFD0D1 100%);
+  background: -ms-linear-gradient(150deg, #fff 0%, #CFD0D1 100%);
+  background: linear-gradient(150deg, #fff 0%, #CFD0D1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-one', endColorstr='$color-two',GradientType=1 );
+}
+
+.line-height-1{
+    line-height: 1rem !important;
+}
+
+.logo-emissora-parceira{
+    max-width: 100px;
+}
+
+@media (max-width: 992px) and (min-width: 576.05px) {
+    #search{margin-bottom: 5px;}
+    
+}
+
+@media (max-width: 576px) {
+    .navbar-nav .social-icons{display:none;}
+    
+}

@@ -1,0 +1,882 @@
+/*Eleições*/
+
+  /*Cores*/
+
+  $votos-validos:     #0f8225;
+  $votos-brancos:     #efefef;
+  // $votos-brancos:     #ffd007;
+  $votos-nulos:       #666666;
+  // $votos-nulos:       #2c4854;
+  $votos-abstencoes:  #333333;
+  $votos-naoapurados: #aaaaaa;
+  $bg-1:              #2C353D;
+  $bg-2:              #354746;
+
+.eleicoes {
+
+  // Animations
+  @-webkit-keyframes pisca {
+    0% {
+      opacity: 0.2;
+      -webkit-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.4);
+    }
+    70%{
+      -webkit-box-shadow: 0 0 0 10px rgba(map-get($theme-colors, warning), 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0);
+    }
+  }
+  @keyframes pisca {
+    0% {
+      opacity: 0.2;
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.4);
+    }
+    70%{
+      -moz-box-shadow: 0 0 0 10px rgba(map-get($theme-colors, warning), 0);
+      box-shadow: 0 0 0 10px rgba(map-get($theme-colors, warning), 0);
+    }
+    100% {
+      opacity: 1;
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0);
+    }
+  }
+
+  .pisca {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    -webkit-animation: pisca 2s infinite both;
+            animation: pisca 2s infinite both;
+  }
+
+  @keyframes atualizado {
+    0% {
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      background: rgba(map-get($theme-colors, warning), 1) !important;
+    }
+    30%{
+      transform: scale(0.9);
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      background: rgba(map-get($theme-colors, warning), 1) !important;
+    }
+    50% {
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.4);
+      background: rgba(map-get($theme-colors, warning), 1) !important;
+    }
+    60% {
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+      background: rgba(map-get($theme-colors, warning), 1) !important;
+    }
+    100% {
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      box-shadow: 0 0 0 0 rgba(map-get($theme-colors, warning), 0.0);
+      background: rgba($white, 1) !important;
+    }
+  }
+
+  @keyframes atualizado-after {
+    0% {
+      opacity: 0.0;
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(0.9);
+      -moz-box-shadow: 0 0 3px 0 rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 3px 0 rgba(map-get($theme-colors, warning), 0.4);
+    }
+    100% {
+      opacity: 0.0;
+      transform: scale(1.0);
+      -moz-box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+      box-shadow: 0 0 3px 10px rgba(map-get($theme-colors, warning), 0.4);
+    }
+  }
+
+  .atualizado {
+    position: relative;
+    // -webkit-animation: atualizado 2s 4 both;
+    //         animation: atualizado 2s 4 both;
+    .box-content:after {
+      @extend .border-radius-10;
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 99999;
+      background: rgba(map-get($theme-colors, warning), 1) !important;
+      background-blend-mode: multiply;
+      -webkit-animation: atualizado-after 2s 4 both;
+            animation: atualizado-after 2s 4 both;
+    }
+  }
+
+  .noalerts {
+    @extend .p-4;
+    @extend .border-radius-10;
+    color: map-get($theme-colors, white);
+    border: 1px dashed $gray-300;
+    background: $gray-200;
+    text-align: center;
+  }
+
+
+  /*Componentes externos*/
+
+    // owl carrousel
+    .owl-stage-outer { padding-top: 30px; padding-bottom: 30px; }
+    .owl-nav button.owl-next,
+    .owl-nav button.owl-prev,
+    button.owl-dot {
+      background: $bg-1;
+      opacity: 0.6;
+
+      &:hover { opacity: 1; }
+
+      .ti-angle-left:before,
+      .ti-angle-right:before { color: #fff; }
+
+    }
+
+    // Slider Caroulsel do componente da home
+    .owl-dots {
+      .owl-dot{
+        span { box-shadow: inset 0 0 0 2px #666 !important;
+          &:after { background: #fff !important; }
+        }
+      }
+    }
+
+    // Form do DataTable
+    #candidatos_wrapper{
+      select { margin-bottom: 0; }
+    }
+
+    .table{
+      &.candidatos{
+
+        tr {
+
+          &.condicao{
+            .nome:before,
+            .nome:after {
+              @extend .badge-pill;
+              @extend .badge;
+            }
+            &.eleito {
+              .nome:before {
+                @extend .badge-primary;
+                content: "Eleito";
+                margin-right: 10px;
+              }
+            }
+            &.alerta {
+              .nome:after {
+                @extend .badge-warning;
+                content: " ! ";
+                font-weight: 700;
+                margin-left: 10px;
+              }
+            }
+            &.nao-eleito { opacity: 0.5; }
+          }
+
+        }
+
+        thead{
+          tr{
+            th{
+              &.classificacao-col { max-width: 40px; width: 10%; }
+              &.nome-col {}
+              &.partido-col {}
+              &.votos-col {}
+            }
+          }
+        }
+
+        td{
+          .bar-percentage{
+            position: absolute;
+            left: 0;
+            top: 10px;
+            bottom: 10px;
+          }
+        }
+
+      }
+    }
+
+
+  .bg-grad-eleicoes,
+  &.bg-grad-eleicoes {
+    @include linear-gradient($bg-1, $bg-2, 0deg);
+  }
+
+        /*white*/
+            .color-white-content { color: #fff !important; }
+            .color-white-bg { background-color: #fff !important; }
+            .color-white-border { border-color: #fff !important; }
+        /*light*/
+            .color-0-content { color: #efefef !important; }
+            .color-0-bg { background-color: #efefef !important; }
+            .color-0-border { border-color: #efefef !important; }
+        /*greenblue*/
+            .color-1-content { color: $votos-validos !important; }
+            .color-1-bg { background-color: $votos-validos !important; }
+            .color-1-border { border-color: $votos-validos !important; }
+        /*greenblue light*/
+            .color-2-content { color: $votos-brancos !important; }
+            .color-2-bg { background-color: $votos-brancos !important; }
+            .color-2-border { border-color: $votos-brancos !important; }
+        /*yellow*/
+            .color-3-content { color: $votos-nulos !important; }
+            .color-3-bg { background-color: $votos-nulos !important; }
+            .color-3-border { border-color: $votos-nulos !important; }
+        /*blue*/
+            .color-4-content { color: $votos-naoapurados !important; }
+            .color-4-bg { background-color: $votos-naoapurados !important; }
+            .color-4-border { border-color: $votos-naoapurados !important; }
+        /*blue*/
+            .color-5-content { color: $votos-abstencoes !important; }
+            .color-5-bg { background-color: $votos-abstencoes !important; }
+            .color-5-border { border-color: $votos-abstencoes !important; }
+
+  .alert{
+    .scrollable-y {
+      overflow-y: auto !important;
+    }
+  }
+
+  .turno2badge,
+  &.turno2badge {
+    &:before {
+      @extend .badge;
+      @extend .badge-pill;
+      @extend .badge-warning;
+      content: '2º turno';
+      position: absolute;
+      left: 50%;
+      top: -9px;
+      transform: translate(-50%,0);
+      z-index: 9999;
+      box-shadow:0px 3px 6px rgba($dark, 0.4);
+      font-size: 12px;
+    }
+  }
+
+  .boxComp {
+
+    h3 {
+      text-transform: uppercase;
+      font-size: 1.4em;
+      font-weight: 600;
+    }
+
+    .filtro {
+      font-weight: 100;
+      .dropdown-menu.center {
+        font-weight: 100;
+        left: 50%;
+        transform: translate(-50%,0);
+      }
+    }
+
+    &.capital:after {
+      @extend .pos-absolute-left-top;
+      content: "\f005";
+      color: map-get($theme-colors, warning);
+      font-family: $font-family-fa !important;
+      font-weight: 900;
+      margin-top: 5px;
+      margin-right: 3px;
+      margin-left: 9px;
+      text-shadow: 0 1px 2px rgba($dark, 0.5);
+      z-index: 9999;
+    }
+
+    &.eleito, &.turno2 {
+
+      .topCandidatos > div {
+        opacity: 0.4;
+      }
+
+      .box-content .urnasComp .bar { 
+        &:after {
+          @extend .pos-absolute-right-center;
+          content: "\f058";
+          color: map-get($theme-colors, light);
+          font-family: $font-family-fa !important;
+          font-weight: 900;
+          text-shadow: 0 1px 2px rgba($dark, 0.5);
+          word-spacing: 6px;
+          margin-right: .33em;
+          font-size: 1.2em;
+        }
+        .indicador { color: map-get($theme-colors, dark);; }
+      }
+      .skill-wrap > div {
+        opacity: 0.4;
+        color: map-get($theme-colors, light) !important;
+        .progress-bar {
+          background: map-get($theme-colors, primary) !important;
+          span {
+            background: map-get($theme-colors, light) !important;
+            color: map-get($theme-colors, dark) !important;
+            &:after { border-bottom-color: map-get($theme-colors, light) !important; }
+          }
+          .votos { color: map-get($theme-colors, light) !important; }
+        }
+        &.turno1,
+        &.turno2 { opacity: 1.0; }
+      }
+    }
+
+    &.eleito {
+      @extend .bg-grad-eleicoes;
+      border-radius: $border-radius-lg;
+      box-shadow: 0px 5px 10px rgba($light, 0.2);
+      border: 1px solid rgba($white, 0.4);
+      &:before {
+        @extend .turno2badge:before;
+        @extend .badge-light;
+        content: 'Eleito';
+      }
+      .municipio { color: $white !important; }
+      .listaCandidatos { color: $white !important; opacity: 0.24; }
+      .turno1, .turno2 { color: $white !important; opacity: 1.0 !important; }
+      &.post-item-desc{
+        & * {color: $white;}
+        &:before{ top: 12px; }
+        .partido { color: $dark; }
+      }
+    }
+
+    &.turno2 {
+      background-color: rgba($bg-1, 0.21) !important;
+      color: $dark !important;
+      .municipio { color: $dark !important; }
+      .listaCandidatos { opacity: 0.24; }
+      .turno1, .turno2 { color: $dark !important; opacity: 1.0 !important; }
+
+      &.post-item-desc{
+        &:before{ top: 12px; }
+      }
+      &:before {
+        @extend .turno2badge:before;
+        content: 'haverá 2º turno';
+      }
+    }
+
+    .box-content {
+
+      .skill {
+        // .resultado{
+        //   .skill-picture img { opacity: 0.5;}
+        //   &.turno1,&.turno2{
+        //     .progress-bar {
+        //       background: map-get($theme-colors, primary) !important;
+        //       span {
+        //         background: map-get($theme-colors, light) !important;
+        //         color: map-get($theme-colors, dark) !important;
+        //         &:after { border-bottom-color: map-get($theme-colors, light) !important; }
+        //       }
+        //       .votos { color: map-get($theme-colors, light) !important; }
+        //     }
+        //   }
+        //   &.turno1 {
+        //     & > div:first-of-type { opacity: 1;
+        //       .nome:before {
+        //         @extend .badge-pill;
+        //         @extend .badge;
+        //         @extend .badge-primary;
+        //         content:"Eleito";
+        //         margin-right: 0.6em;
+        //       }
+        //       .skill-picture img { opacity: 1;}
+        //     }
+        //   }
+        //   &.turno2 {
+        //     & > div:first-of-type,
+        //       > div:nth-of-type(2) { opacity: 1;
+        //       .nome:before {
+        //         @extend .badge-pill;
+        //         @extend .badge;
+        //         @extend .badge-primary;
+        //         content:"2º Turno";
+        //         margin-right: 0.6em;
+        //       }
+        //       .skill-picture img { opacity: 1;}
+        //     }
+        //   }
+        //   &.eliminado {
+        //     opacity: 0.27;
+        //   }
+        // }
+
+        .turno1,.turno2,.eliminado{
+          .progress-bar {
+            background: map-get($theme-colors, primary) !important;
+            span {
+              background: map-get($theme-colors, light) !important;
+              color: map-get($theme-colors, dark) !important;
+              &:after { border-bottom-color: map-get($theme-colors, light) !important; }
+            }
+            .votos { color: map-get($theme-colors, light) !important; }
+          }
+        }
+        .turno1 {
+          opacity: 1.0 !important;
+          .nome:before {
+            @extend .badge-pill;
+            @extend .badge;
+            @extend .badge-primary;
+            content:"Eleito";
+            margin-right: 0.6em;
+          }
+        }
+        .turno2 {
+          opacity: 1.0 !important;
+          .nome:before {
+            @extend .badge-pill;
+            @extend .badge;
+            @extend .badge-primary;
+            content:"2º Turno";
+            margin-right: 0.6em;
+          }
+        }
+        .eliminado {
+          opacity: 0.27;
+          color: map-get($theme-colors, light) !important;
+        }
+
+        .alerta {
+          .skill-picture:before {
+            @extend .badge-pill;
+            @extend .badge;
+            @extend .badge-warning;
+            position: absolute;
+            right: 9px;
+            top: 3px;
+            z-index: 99;
+            content: " ! ";
+            font-weight: 700;
+            margin-left: 10px;
+          }
+        }
+
+      }
+
+      .info {
+        font-size: 0.8em;
+        font-style: italic;
+        color: #999;
+        padding: 0px 0 20px 20px;
+        margin-top: -15px;
+      }
+
+      .urnasComp { width: 100%; font-size: 0.9em;
+
+        .bar {
+          width: 100%;
+          display: flex;
+          position: relative;
+
+          div {
+            display: inline-flex;
+            float: left;
+            height: 1em;
+            position: relative;
+
+            &.lg{ height: 2em; }
+          }
+          .bar-container {
+            width: 100%;
+            display: flex;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.33);
+
+            &.overflow-visible {
+              > div:first-of-type { border-radius: $border-radius-lg 0 0 $border-radius-lg; }
+              > div:last-of-type { border-radius: 0 $border-radius-lg $border-radius-lg 0; }
+            }
+
+          }
+          .indicador {
+            display: table;
+            position: absolute;
+            right: 0;
+            bottom: -1.8em;
+            transform: translate(8px,0);
+            height: 1em;
+            line-height: 1em;
+            padding: 5px;
+            border-radius: 2px;
+            z-index: 1;
+            box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.6);
+
+            > i {
+              content: "\f0d8";
+              font-family: $font-family-fa !important;
+              color: #fff;
+              position: absolute;
+              top: -9px;
+              right: 4px;
+              font-weight: 900;
+              // transform: translate(-50%,0);
+            }
+
+          }
+
+          .bar-indicator-position { position: absolute; left: 0; top: 0;
+
+            .indicador > i {
+              content: "\f0d8";
+              font-family: $font-family-fa !important;
+              color: #fff;
+              position: absolute;
+              top: -9px;
+              right: 4px;
+              font-weight: 900;
+              // transform: translate(-50%,0);
+            }
+
+          }
+
+          .legendas {
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-flex-flow: row wrap;
+            justify-content: space-between;
+
+              div { line-height: initial; padding: 0 5px 5px 5px;}
+              div:first-of-type {  }
+              div:last-of-type {  }
+          }
+
+        }
+
+      }
+
+      .topCandidatos {
+
+        .candidato{
+
+          .foto{
+            width: 90%;
+            height: 0;
+            padding-bottom: 90%;
+            overflow: hidden;
+            position: relative;
+            border-radius: 50%;
+            margin: auto;
+            box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.33);
+
+           .circleProgressBar {
+              margin: 0;
+              width: 100%;
+              height: 100%;
+              position: absolute;
+              z-index: 2;
+
+              .progressbar-text {display: none;}
+            }
+
+            img {
+              width: 100%;
+              height: auto;
+              position: absolute;
+              top: 0;
+              left: 50%;
+              transform: translate(-50%,0);
+              z-index: 1
+            }
+          }
+
+          .dados-candidatos {
+            position: relative;
+
+            .porcentagem { font-weight: 700; font-size: 1.8em; }
+            .votos {}
+            .nome {
+              font-weight: 700;
+              height: 1.6em;
+              overflow-wrap: break-word;
+              overflow: hidden;
+            }
+
+          }
+
+          &.eliminado{ opacity: 0.27; color: $white !important;}
+
+          &.turno1 .dados-candidatos:before,
+          &.turno2 .dados-candidatos:before {
+            position: absolute;
+            left: 50%;
+            top: -5px;
+            transform: translate(-50%,-50%);
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            font-size: 0.9em;
+            border-radius: 50%;
+            z-index: 999;
+            background-color: map-get($theme-colors, primary);
+            color: #efefef !important;
+            text-align: center;
+            box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.3);
+          }
+
+          &.turno1{
+            .dados-candidatos:before { content: "\f00c"; font-family: $font-family-fa; font-weight: 900; }
+          }
+          &.turno2{
+            .dados-candidatos:before { content: "\f01e"; font-family: $font-family-fa; font-weight: 900; }
+          }
+          &.alerta:after {
+            @extend .badge-warning;
+            @extend .badge-pill;
+            content: " ! ";
+            font-weight: 700;
+            margin-left: 10px;
+            position: absolute;
+            right: 0;
+            top: 0px;
+            width: 20px;
+            height: 20px;
+            z-index: 999;
+            box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.3);
+          }
+
+        }
+
+      }
+
+      .listaCandidatos { width: 100%; display: flex;
+
+        ul { width: 100%;
+
+          li { position: relative;
+            div { position: relative; }
+          }
+          // li { list-style-image: none; display: inline-block;
+
+          //   span { margin: 0;
+          //     &:first-of-type {
+          //       max-width: 75%;
+          //       white-space: nowrap;
+          //       overflow: hidden;
+          //       text-overflow: ellipsis;
+          //       float: left;
+          //     }
+          //     &:last-of-type { max-width: 25%; float: right; }
+          //   }
+          // }
+        }
+
+        .partido-xs {
+          max-width: 60px;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          font-size: 0.6em;
+          min-width: 40px;
+        }
+        .alerta:after {
+          @extend .badge-warning;
+          @extend .badge-pill;
+          content: " ! ";
+          font-weight: 700;
+          margin-left: 10px;
+          position: absolute;
+          right: -5px;
+          top: -5px;
+          width: 20px;
+          height: 20px;
+          z-index: 999;
+          box-shadow: 0px 3px 6px 1px rgba(0,0,0,0.3);
+          font-size: 0.8rem;
+        }
+      }
+
+
+      .slider {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+
+        .slide-image{
+          overflow: hidden;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+
+          img {
+            width: 101%;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+          }
+
+        }
+      }
+
+    }
+
+  }
+
+/* Listagem candidatos */
+
+      .listagem-candidatos {}
+      .listagem-candidatos ul { width: 100%; }
+      .listagem-candidatos ul li {
+        list-style: none;
+        height: initial;
+        line-height: initial;
+        padding: 5px 0;
+        width: 100%;
+        display: flex;
+    }
+      .listagem-candidatos ul li:hover { background-color: #efefef; }
+      .listagem-candidatos ul li span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: right;
+    }
+      .listagem-candidatos ul li span:first-of-type { text-align: left; }
+      .listagem-candidatos ul li span:last-of-type { text-align: right; }
+
+
+/* ----------- */
+/* Componentes */
+/* ----------- */
+
+    /* Dashboard */
+
+
+    /* BOX */
+
+    /* Top 3 Candidados */
+
+    article   .boxComp .box-content .top3Candidatos ul li.candidato .dados-candidatos span {
+        display: block;
+        height: 24px;
+        line-height: 24px;
+    }
+
+      .boxComp .box-content .slider .carousel.slide { position: absolute; width: 100%; height: 100%; }
+
+      .boxComp .box-content .slider .carousel.slide .carousel-indicators { bottom: 4px; }
+      .boxComp .box-content .slider .carousel.slide .carousel-indicators li { background-color: rgba(0, 0, 0, 0.2); }
+      .boxComp .box-content .slider .carousel.slide .carousel-indicators li.active { background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.3); }
+      .boxComp .box-content .slider .carousel.slide .carousel-control { width: 6%; }
+      .boxComp .box-content .slider .carousel.slide .carousel-control .glyphicon-chevron-left,
+      .boxComp .box-content .slider .carousel.slide .carousel-control .glyphicon-chevron-right,
+      .boxComp .box-content .slider .carousel.slide .carousel-control .icon-prev,
+      .boxComp .box-content .slider .carousel.slide .carousel-control .icon-next { margin-top: -15px;}
+
+      .boxComp .box-content .slider .carousel.slide .carousel-inner,
+      .boxComp .box-content .slider .carousel.slide .carousel-inner .item,
+      .boxComp .box-content .slider .carousel.slide .carousel-inner > .item > img { width:100%; height:100%; }
+      .boxComp .box-content .slider .carousel.slide .carousel-control { background: none; }
+      .boxComp .box-content .slider .carousel.slide .carousel-inner .item .vermais { bottom: 3px; }
+
+    /* Menu Estados */
+
+      .menu-estados {}
+      .menu-estados ul {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-flow: row wrap;
+        justify-content: space-between;
+        margin-left: -4px;
+        margin-right: -4px;
+    }
+      .menu-estados ul li {
+        list-style: none;
+        background-color: #C7CDE7;
+        text-align: center;
+        font-weight: 600;
+        min-height: 34px;
+        line-height: 34px;
+        cursor: pointer;
+    }
+      .menu-estados.nacional ul li { min-width: 6%; margin: 0.4%; color: #0E4653;}
+      .menu-estados.nacional ul li:first-of-type { background-color: #008287; color: #fff; }
+      .menu-estados.nacional ul li:first-of-type a { color: #fff; }
+
+      .menu-estados.estadual ul li { min-width: 10%; margin: 0.5%; }
+
+      .menu-estados ul li:hover,
+      .menu-estados ul li.active { background-color: #FFD58E !important; box-shadow: 0 2px 2px 0px rgba(0,0,0,0.4); z-index: 1; }
+      .menu-estados ul li.deactivated { opacity: 0.5; filter: grayscale(100%); cursor: not-allowed; }
+      .menu-estados ul li.deactivated a { pointer-events: none; }
+      .menu-estados ul li a { display: block; width: 100%; color: #0E4653 }
+      .menu-estados.estadual ul li a { line-height: 34px; }
+
+    @media screen and (max-width: 767px) {
+          .menu-estados.nacional ul li { min-width: 12%; margin: 1%; }
+          .menu-estados.estadual ul li a { line-height: 34px; }
+    }
+
+
+    /* Listagem candidatos */
+
+      .listagem-candidatos {}
+      .listagem-candidatos ul { width: 100%; }
+      .listagem-candidatos ul li {
+        list-style: none;
+        height: initial;
+        line-height: initial;
+        padding: 5px 0;
+        width: 100%;
+        display: flex;
+    }
+      .listagem-candidatos ul li:hover { background-color: #efefef; }
+      .listagem-candidatos ul li span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: right;
+    }
+      .listagem-candidatos ul li span:first-of-type { text-align: left; }
+      .listagem-candidatos ul li span:last-of-type { text-align: right; }
+
+}
+
+@include media-breakpoint-down(sm){
+  #sidemenu {
+    &.sidemenu {
+      .container {
+        .content-menu { width: 100%; }
+      }
+    }
+  }
+}

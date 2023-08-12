@@ -1,0 +1,526 @@
+/*tabelas dos campeonatos*/
+
+/*-------------MENU BREADCRUMBS------------*/
+ .nobg-grad:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    height: 0px !important;
+    opacity: 1;
+    background: #fff !important;
+  }
+
+.navbar-nav .breadcrumb-menu.dropdown-menu {
+  background-color: #f7f8f9 !important;
+  padding: 0;
+  min-width: 12rem;
+  margin-top:0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 0 0 10px 10px;
+border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.navbar-nav .breadcrumb-menu.dropdown-menu .dropdown-submenu .dropdown-item {
+    padding: 0.3rem 1rem;
+  }
+
+.grupo {
+   /* trazer aqui todo o conteudo da agencia atual se tiver tudo dentro da class GRUPOS */
+
+
+.timeLogo{
+      width: 25px;
+      height: 25px;
+      vertical-align: bottom;
+    }
+
+#mainContent {
+  clear: both;
+  overflow: hidden;
+}
+
+#mainContent:focus {
+  outline: 0;
+}
+
+@media (min-width:63.9375em) {
+  #mainContent {
+    overflow: visible;
+  }
+
+  #mainContent:before {
+    content: "";
+    display: block;
+  }
+
+  #mainContent:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.wrapper {
+  max-width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wrapper:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+
+.table.wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+.text-centre {
+  text-align: center!important;
+}
+
+.tooltipContainer,
+.visuallyHidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.table {
+  clear: both;
+  border: #d0d4d9 1px solid;
+}
+
+
+.table thead th {
+  color: #343a40;
+}
+
+.table .rowHighlight {
+  background: #efefef;
+}
+
+.table .rowHighlightLight {
+  background: #f7f4f4;
+}
+
+.table .matchAbridged .teamName {
+  min-width: 0;
+}
+
+.table table {
+  width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
+
+.table .tooltipContainer.tooltip-link,.table a {
+  text-decoration: none;
+}
+
+.table a {
+  color: #242424;
+  vertical-align: middle;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.table a:focus,.table a:hover {
+  text-decoration: underline;
+}
+
+.table .team {
+  text-align: left;
+}
+
+.table .team:after {
+  background: #e4e4e4;
+}
+
+.table th.team {
+  padding-left: 4.5rem;
+}
+
+.table .tableDark,
+.table .tableLight,
+.table .tableMid {
+  background: #fafafa;
+}
+
+.table td,
+.table th {
+  padding: 0.5rem 0.5rem;
+}
+
+.table .thShort {
+  display: none;
+}
+
+.table th {
+  color: #666;
+  font-size: 1.2rem;
+  vertical-align: middle;
+}
+
+@media (max-width:43.75em) {
+  .table th {
+    padding: .7rem 1rem;
+  }
+}
+
+.table th span {
+  display: block;
+}
+
+.table th.revealMoreHeader {
+  padding: 0;
+  vertical-align: middle;
+}
+
+.table.statsTable th {
+  text-align: left;
+}
+
+@media (max-width:43.75em) {
+  .table td {
+    height: 4rem;
+  }
+
+   h1 {
+    line-height: 2rem;
+    font-size: 8vw;
+  }
+}
+
+.table td.button-tooltip {
+  display: table-cell;
+}
+
+.table td.pos {
+  text-align: center;
+  z-index: 1;
+}
+
+.table td.pos .tooltipContainer {
+  line-height: 2rem;
+  bottom: 1.5rem;
+  left: -1.5rem;
+}
+
+.table td.pos .value {
+  width: 2rem;
+  display: inline-block;
+}
+
+
+.table .movement {
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.table .movement.none {
+  border-radius: 100%;
+  width: 4px;
+  height: 4px;
+  background: #adadad;
+  top: -.3rem;
+}
+
+.table .movement.hidden,
+.table .movement.hidden .tooltipContainer {
+  display: none;
+}
+
+.table .movement.down,
+.table .movement.up {
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  top: -.3rem;
+  margin-right: -1px;
+}
+
+.table .movement.up {
+  border-bottom: 3px solid #13cf00;
+}
+
+.table .movement.down {
+  border-top: 3px solid #e90052;
+}
+
+.table td.team {
+  text-align: left;
+}
+
+.table td.team .badgeContainer {
+  width: 35px;
+  height: 35px;
+  display: block;
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  border-radius: 100%;
+  background: transparent;
+  z-index: 1;
+}
+
+.table td.team .badge-25 {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.table td.team .long,
+.table td.team .short {
+  padding-left: 1rem;
+}
+
+.table td.team .short {
+  display: none;
+}
+
+@media (max-width:25em) {
+  .table td.team .badgeContainer {
+    display: none;
+  }
+
+  .table td.team .long,
+  .table td.team .short {
+    padding-left: .5rem;
+  }
+
+  h1 {
+    line-height: 1em;
+    font-size: 6vw;
+  }
+}
+
+.table td.team:after {
+  content: "";
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
+  display: block;
+  position: absolute;
+  background: #efefef;
+  right: 0;
+}
+
+@media (max-width:63.9375em) {
+  .table td.team:after {
+    display: none;
+  }
+}
+
+.table .showSmall {
+  display: none;
+}
+
+
+@media (max-width:56.25em) {
+  .table .team {
+    width: 40%;
+  }
+}
+
+@media (max-width:43.75em) {
+  .table table {
+    font-size: 1.3rem;
+  }
+
+  .table .team {
+    width: 25%;
+  }
+
+  .table .hideSmall,
+  .table .thFull {
+    display: none;
+  }
+
+  .table .showSmall,
+  .table .thShort {
+    display: block;
+  }
+
+  .table td.team .long {
+    display: none;
+  }
+
+  .table td.team .short {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .table td.team .short:hover {
+    text-decoration: none;
+  }
+
+}
+
+@media (max-width:29.375em) {
+  .table td,
+  .table th {
+    padding-left: .5rem;
+    padding-right: .5rem;
+    font-size: 1.2rem;
+  }
+
+  .table td.team,
+  .table th.team {
+    padding-left: .3rem;
+    padding-right: .3rem;
+    width: 24%;
+  }
+}
+
+.tooltipContainer,.visuallyHidden{
+    border:0;
+    clip:rect(0 0 0 0);
+    height:1px;
+    margin:-1px;
+    overflow:hidden;
+    padding:0;
+    position:absolute;
+    width:1px
+}
+.table .tooltipContainer.tooltip-link,.table a{
+    text-decoration:none
+}
+.table td.pos .tooltipContainer{
+    line-height:2rem;
+    bottom:1.5rem;
+    left:-1.5rem
+}
+.table .movement.hidden,.table .movement.hidden .tooltipContainer{
+    display:none
+}
+.button-tooltip .tooltipContainer:focus,.button-tooltip .tooltipContainer:hover,.button-tooltip:focus .tooltipContainer,.button-tooltip:hover .tooltipContainer{
+    clip:auto;
+    height:auto;
+    width:auto;
+    opacity:1
+}
+.tooltipContainer{
+    position:absolute;
+    bottom:2.4rem;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:90;
+    padding:0 0 1rem;
+    text-align:center;
+    text-decoration:none;
+    white-space:nowrap;
+    overflow:visible;
+    color:#242424;
+    opacity:0;
+    transition:.2s
+}
+.tooltipContainer.tooltip-left{
+    left:0;
+    transform:translateX(0)
+}
+.tooltipContainer.tooltip-left .tooltip-content:after{
+    left:2rem
+}
+.tooltipContainer.tooltip-right{
+    right:-1.3rem;
+    left:auto;
+    transform:translateX(0)
+}
+.tooltipContainer.tooltip-right .tooltip-content:after{
+    right:2rem;
+    left:auto
+}
+.tooltipContainer .tooltip-content{
+    background:#fff;
+    box-shadow:0 2px 8px rgba(0,0,0,.25);
+    position:relative;
+    display:block;
+    transition:all .2s;
+    padding:1rem
+}
+.tooltipContainer .tooltip-content:after{
+    content:"";
+    display:block;
+    border:10px solid transparent;
+    border-top-color:#fff;
+    border-bottom:0;
+    position:absolute;
+    bottom:-9px;
+    left:50%;
+    margin-left:-10px;
+    transition:all .2s
+}
+.tooltipContainer .matchAbridged{
+    background-color:transparent;
+    padding:1rem 2.5rem 1rem 1rem
+}
+.tooltipContainer .matchAbridged:hover .icn{
+    transform:none
+}
+.tooltipContainer .matchAbridged [class*=arrow-right]{
+    bottom:1.8rem;
+    right:1.1rem;
+    margin-bottom:0;
+    transition:transform .2s
+}
+.tooltipContainer.tooltip-link:focus .tooltip-content:after,.tooltipContainer.tooltip-link:hover .tooltip-content:after{
+    border-top-color:#ff2882
+}
+.tooltipContainer.tooltip-link:focus .matchAbridged,.tooltipContainer.tooltip-link:hover .matchAbridged{
+    color:#fff;
+    background:#ff2882
+}
+.tooltipContainer.tooltip-link:focus .matchAbridged .matchInfo,.tooltipContainer.tooltip-link:hover .matchAbridged .matchInfo{
+    color:#fff
+}
+.tooltipContainer.tooltip-link:focus .matchAbridged [class*=arrow-right],.tooltipContainer.tooltip-link:hover .matchAbridged [class*=arrow-right]{
+    transform:scale(.7) translateX(5px);
+    right:.9rem;
+    content:"";
+    background:url(../i/sprites/arrows-sprite.png) -39px -69px no-repeat;
+    width:15px;
+    height:9px
+}
+@media (-webkit-min-device-pixel-ratio:2),(min-resolution:192dpi){
+    .tooltipContainer.tooltip-link:focus .matchAbridged [class*=arrow-right],.tooltipContainer.tooltip-link:hover .matchAbridged [class*=arrow-right]{
+        background-image:url(../i/sprites/arrows-sprite@x2.png);
+        background-size:91px 82px
+    }
+}
+.tooltipContainer.tooltip-link:focus .matchAbridged time,.tooltipContainer.tooltip-link:hover .matchAbridged time{
+    background:#fff;
+    color:#ff2882
+}
+.tooltipContainer.tooltip-link .tooltip-content{
+    padding:0
+}
+.tooltipContainer.tooltip-link .tooltip-content:focus,.tooltipContainer.tooltip-link .tooltip-content:hover{
+    background:#ff2882
+}
+.tooltipContainer.tooltip-link .tooltip-content:focus:after,.tooltipContainer.tooltip-link .tooltip-content:hover:after{
+    border-top-color:#ff2882
+}
+.nextMatchCol .tooltipContainer.tooltip-right{
+    right:1rem
+}
+
+
+
+}

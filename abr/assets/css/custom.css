@@ -1,0 +1,31 @@
+/* esconde componentes com tamanho inferior a 990 */
+@media (max-width: 990px) {
+  .hide-0-to-990 {
+    display: none;
+  }
+}
+
+.pane-bean-breaknews-2020 .badge-danger {
+  margin-top:15px;
+}
+
+.toolbar-drawer header.navbar-sticky-on {
+  top: 64px;
+}
+
+.eouv-manifestacoes img {
+  width: 105px;
+  border-radius: 5px;
+  opacity: 0.9;
+}
+
+.eouv-manifestacoes a {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 360px) {
+  .eouv-manifestacoes img {
+    width: 90px;
+  }
+}

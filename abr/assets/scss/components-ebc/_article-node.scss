@@ -1,0 +1,267 @@
+/*Galeria de Foto - Mosaico*/
+article {
+
+  // trazer aqui todo o conteudo da agencia atual se tiver tudo dentro da tag ARTICLE
+ 
+
+
+p {
+    margin: 0 0 1.3rem 0;
+    a {
+        color: $green;
+        text-decoration: underline;
+        font-weight: bold;
+    
+        &:hover {
+            color: $white;
+            text-decoration: none;
+            background: $primary;
+            padding: 0 4px;
+            margin-left: -4px;
+            margin-right: -4px;
+            border-radius: $border-radius-lg;
+        };
+    }
+}
+    
+.atom-align-right{
+    float: right;
+}
+    
+.atom-align-left{
+    float:left;
+}
+    
+.atom-align-center{
+    float:none;
+    margin: 1rem auto;
+}
+    
+.type-image img{
+    border-radius: 3px !important;
+    width: 100%;
+}
+    
+.type-image.atom-align-right{
+    margin: 0 0 0 1rem;
+}
+    
+.type-image.atom-align-left{
+    margin: 0 1rem 0 0;
+}
+      
+
+.type-image .meta{
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 500;
+    background: #eee;
+    padding: 10px;
+    line-height: 1.5em;
+    width: 100%;
+}
+    
+.type-video .meta{
+    font-size: 0.7em;
+    font-style: italic;
+    font-weight: 500;
+    background: #eee;
+    padding: 10px;
+    line-height: 1.5em;
+    width: 100%;
+}
+    
+.context-pequeno_3colunas{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    min-width: 200px;
+}
+    
+.context-grande_6colunas{
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+}
+    
+.context-medio_4colunas{
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.img-responsive{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    }
+    
+    
+/*blockquote*/ 
+
+blockquote {
+  position: relative;
+    font-size: 1.25rem;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  &:before {
+    display: none;
+  }
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    @include linear-gradient($grad-start, $grad-end, 150deg);
+  }
+  cite {
+    font-size: $font-size-base;
+  }
+}
+
+
+/*List style*/
+
+.post-item-wrap ul, .post-item-wrap ol {
+    margin-right: 5px; 
+    background: transparent;
+    padding-left: 0;
+    list-style: none;
+ }
+
+.post-item-wrap ul li, .post-item-wrap ol li{
+    color: $gray-600;
+    padding: 0.425rem 0;
+    position: relative;
+    display: block;
+    margin-bottom: -1px;
+
+}
+    
+.post-item-wrap ol { 
+    counter-reset: ol-counter;
+ }
+    
+.post-item-wrap ul li::before{
+    font-family: 'Font Awesome 5 Free';
+    content: "\f00c";
+    font-weight: 900;
+    margin: 0px 8px;
+    font-size: 10px;
+}    
+
+.post-item-wrap ol li {
+  counter-increment: ol-counter;
+  position: relative;
+}
+.post-item-wrap ol li::before {
+    content: counter(ol-counter);
+    color: #8f9397;
+    font-size: 11px;
+    position: relative;
+    line-height: 22px;
+    background: #f0f1f3;
+    border-radius: 50%;
+    text-align: center;
+    margin-right: 8px;
+    padding: 3px 8px;
+    margin-top: 0px;
+}
+    
+
+.post-item-wrap ul li:hover, .post-item-wrap ol li:hover {
+    background-color: #fff;
+    color: $primary;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.post-item-wrap ul li a, .post-item-wrap ol li a{
+    cursor: pointer;
+}
+
+    
+table {
+    width: 100% !important;
+    margin-bottom: 1rem;
+    color: #212529;
+    border: 1px solid #dee2e6;
+    border-collapse: collapse;
+}
+
+table thead tr, table th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+    
+tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+    
+table tbody + tbody {
+  border-top: 2px solid #dee2e6;
+}
+    
+table tr:hover {
+  color: #212529;
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+
+table th,
+table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border: 1px solid #dee2e6;
+}
+    
+table th::before,
+table th::after,
+table td::before,
+table td::after {
+    box-sizing: border-box;
+}
+    
+
+
+    
+// Galeria de Vídeos
+    
+.galleria-info-description a { color: #bbb;}
+        .cred{margin-top:20px;font-size:11px;}
+
+        /* Gallery measures that will be applied */
+.galleria {
+    height:420px;    /* defines a static gallery height */
+    max-width:820px; /* defines a responsive width */
+}
+    
+    
+    
+    
+/// Media Element
+    
+.controlBar{
+    background: -moz-linear-gradient(150deg, #158342 0%, #FFD10F 100%) !important;
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #158342), color-stop(100%, #FFD10F)) !important;
+    background: -webkit-linear-gradient(150deg, #158342 0%, #FFD10F 100%) !important;
+    background: -o-linear-gradient(150deg, #158342 0%, #FFD10F 100%) !important;
+    background: -ms-linear-gradient(150deg, #158342 0%, #FFD10F 100%);
+    background: linear-gradient(150deg, #158342 0%, #FFD10F 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$color-one', endColorstr='$color-two',GradientType=1 ) !important;
+}
+    
+
+    
+    //background:rgba(255,0,0,.7);
+     //background:linear-gradient(transparent,rgba(0,0,0,.35));
+
+    
+  
+} // fecha article
+
+// trazer aqui todo o conteudo da agencia atual

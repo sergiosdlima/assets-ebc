@@ -1,0 +1,30 @@
+/*Galeria de Foto - Mosaico*/
+
+
+.CentraldeChamados {
+
+  .portfolio-style-2 .portfolio-card:hover .portfolio-card-footer {
+    bottom: 15%;
+  }
+
+  .portfolio-style-2 .portfolio-card a{
+    color: #158342;
+  }
+  
+  .portfolio-style-2 .portfolio-card a:hover{
+    color: #ffffff;
+  }
+
+  .modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    border-top: none;
+    border-bottom-right-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    background-color: #ffffff !important;
+  }
+  
+  
+}

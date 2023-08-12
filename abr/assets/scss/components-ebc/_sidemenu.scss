@@ -1,0 +1,140 @@
+/*sidemenu*/
+#sidemenu{
+  
+  &.sidemenu {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 300px;
+    z-index: 9999999;
+    transition: 1s;
+    background-color: rgba(map-get($theme-colors, dark), 0.98);
+    overflow: hidden;
+
+    &.collapsing {
+      position: fixed;
+      height: 0;
+      overflow: hidden;
+      -webkit-transition-property: height, visibility;
+      transition-property: height, visibility;
+      -webkit-transition-duration: 0.35s;
+      transition-duration: 0.35s;
+      -webkit-transition-timing-function: ease;
+      transition-timing-function: ease;
+      
+      &.horizontal {
+        left: -300px;
+        -webkit-transition-property: left, visibility;
+        transition-property: left, visibility;
+        -webkit-transition-timing-function: ease;
+        transition-timing-function: ease;
+        transition-duration: 0.35s;
+        height: auto;
+        top: 0;
+        bottom: 0;
+      }
+    }
+
+    .container {
+
+      $sidemenu-header-height: 150px;
+      $sidemenu-base-height: 40px;
+
+      position: absolute;
+      overflow-y: hidden;
+      overflow-x: hidden;
+      top: 0;
+      right: 0px;
+      bottom: 0;
+      left: 0;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+
+      .header { height: $sidemenu-header-height; }
+
+      .content-menu {
+        position: absolute;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        top: $sidemenu-header-height;
+        right: 0px;
+        bottom: $sidemenu-base-height;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        width: calc(100% + 15px);
+
+      }
+
+      .dropdown-item {
+        padding: 0.4rem 0.8rem;
+        white-space: inherit;
+      }
+
+      .list-subitems {
+        padding-left: 0px;
+        margin-left: 22px;
+        border-left: solid thin $gray-600;
+        a {
+          &::before {
+            position: absolute;
+            content: "\f055";
+            font-family: "Font Awesome 5 Free";
+            color: $gray-600;
+            background: #3e3e3e;
+            left: -13px;
+            top: 7px;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+          }
+        }
+      }
+
+      .base { height: $sidemenu-base-height; }
+        
+        .social-icons .social-icons-item{ margin: 0;}
+        
+        .social-icons-link {
+          display: inline-block;
+          height: 21px;
+          width: 21px;
+          line-height: 26px;
+          font-size: 15px;
+          text-align: center;
+          border-radius: 3px;
+          border: 0;
+          background: transparent;
+          color: #a9a9a9;
+          overflow: hidden;
+          -webkit-transition: all 0.3s ease-in-out;
+          -moz-transition: all 0.3s ease-in-out;
+          -ms-transition: all 0.3s ease-in-out;
+          -o-transition: all 0.3s ease-in-out;
+          transition: all 0.3s ease-in-out;
+          }
+          
+          .social-icons-link:hover {
+              color: #0e572c;
+              text-decoration: none;
+          }
+        }
+    }
+    
+
+}
+
+@include media-breakpoint-down(sm){
+  #sidemenu {
+    &.sidemenu {
+      .container {
+        .content-menu { width: 100%; }
+      }
+    }
+  }
+}

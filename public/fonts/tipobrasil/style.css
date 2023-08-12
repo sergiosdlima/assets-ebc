@@ -1,0 +1,95 @@
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-100extralight-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-100extralight-webfont.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-100extralightitalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-100extralightitalic-webfont.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-250light-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-250light-webfont.woff') format('woff');
+    font-weight: 250;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-250lightitalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-250lightitalic-webfont.woff') format('woff');
+    font-weight: 250;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-400regular-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-400regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-400regularitalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-400regularitalic-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-600medium-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-600medium-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-600mediumitalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-600mediumitalic-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-700semibold-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-700semibold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-700semibolditalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-700semibolditalic-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-850bold-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-850bold-webfont.woff') format('woff');
+    font-weight: 850;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'tipobrasil_rounded';
+    src: url('tipobrasilrounded-850bolditalic-webfont.woff2') format('woff2'),
+         url('tipobrasilrounded-850bolditalic-webfont.woff') format('woff');
+    font-weight: 850;
+    font-style: italic;
+}
